@@ -6,6 +6,7 @@
 package com.sv.udb.forms;
 
 import com.sv.udb.Clases.Gasolinera;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,7 +27,8 @@ public class FrmGasolinera extends javax.swing.JFrame {
         obj.setDispo1(1000);
         obj.setDispo2(1000);
         obj.setDispo3(1000);
-       
+        tipo=0;
+       btnPagar.setEnabled(false);
     }
 
     /**
@@ -50,7 +52,18 @@ public class FrmGasolinera extends javax.swing.JFrame {
         lblNombre = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         btnGetGasoline = new javax.swing.JButton();
+        lblTipo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblPago = new javax.swing.JLabel();
+        lblPagoD = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnPagar = new javax.swing.JButton();
+        lblVuelto = new javax.swing.JLabel();
+        lblVueltoD = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblPagadoD = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblGalonesC = new javax.swing.JLabel();
 
         lblRegular1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblRegular1.setText("Regular");
@@ -121,7 +134,7 @@ public class FrmGasolinera extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Seleccione el tipo ");
+        lblTipo.setText("Seleccione el tipo ");
 
         javax.swing.GroupLayout jpbPrincipalLayout = new javax.swing.GroupLayout(jpbPrincipal);
         jpbPrincipal.setLayout(jpbPrincipalLayout);
@@ -131,7 +144,7 @@ public class FrmGasolinera extends javax.swing.JFrame {
                 .addGroup(jpbPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCantidad)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblTipo)
                     .addGroup(jpbPrincipalLayout.createSequentialGroup()
                         .addComponent(jrdDinero)
                         .addGap(18, 18, 18)
@@ -140,32 +153,31 @@ public class FrmGasolinera extends javax.swing.JFrame {
                     .addGroup(jpbPrincipalLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblDiesel)
-                        .addGap(33, 33, 33)
+                        .addGap(42, 42, 42)
                         .addComponent(lblRegular)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(lblEspecial))
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpbPrincipalLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(btnGetGasoline)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpbPrincipalLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnGetGasoline)
-                .addGap(83, 83, 83))
         );
         jpbPrincipalLayout.setVerticalGroup(
             jpbPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpbPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpbPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDiesel)
+                    .addComponent(lblEspecial)
                     .addComponent(lblRegular)
-                    .addComponent(lblEspecial))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                    .addComponent(lblDiesel))
+                .addGap(18, 18, 18)
+                .addComponent(lblTipo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpbPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrdGalones)
-                    .addComponent(jrdDinero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jrdDinero)
+                    .addComponent(jrdGalones))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCantidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,9 +185,103 @@ public class FrmGasolinera extends javax.swing.JFrame {
                 .addComponent(lblNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGetGasoline, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cuenta"));
+
+        lblPago.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblPago.setText("Total:");
+
+        lblPagoD.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblPagoD.setText("$0");
+
+        btnPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sv/udb/img/pay.png"))); // NOI18N
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
+
+        lblVuelto.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblVuelto.setText("Vuelto:");
+
+        lblVueltoD.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblVueltoD.setText("$0");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setText("Pagado:");
+
+        lblPagadoD.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblPagadoD.setText("$0");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setText("Galones:");
+
+        lblGalonesC.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblGalonesC.setText("0");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblGalonesC))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVuelto)
+                                    .addComponent(jLabel2))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVueltoD)
+                                    .addComponent(lblPagadoD)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblPago)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPagoD)))))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lblGalonesC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGetGasoline, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPago))
+                    .addComponent(lblPagoD, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPagadoD)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVuelto)
+                    .addComponent(lblVueltoD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,13 +291,17 @@ public class FrmGasolinera extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpbPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpbPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpbPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -203,7 +313,42 @@ public class FrmGasolinera extends javax.swing.JFrame {
     }//GEN-LAST:event_jrdDineroActionPerformed
 
     private void btnGetGasolineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetGasolineActionPerformed
+    if(!(txtCantidad.getText().trim().isEmpty())  && !(txtNombre.getText().trim().isEmpty()) && tipo != 0&& (jrdDinero.isSelected() == true || jrdGalones.isSelected() == true))
+    {
+    try 
+    {
+    cantidad = Double.parseDouble(txtCantidad.getText());
+    if(jrdDinero.isSelected() == true)
+    {
     obj.ventaDinero(cantidad, tipo);
+     lblGalonesC.setText(obj.getCantidad()+"");
+       btnPagar.setEnabled(true);
+    btnGetGasoline.setEnabled(false);
+    lblPagoD.setText("$"+txtCantidad.getText());
+    obj.setPago(Double.parseDouble(txtCantidad.getText()));
+    }
+    else if (jrdGalones.isSelected() == true)
+    {
+    obj.ventaGalones(cantidad, tipo);
+    JOptionPane.showMessageDialog(this, "$"+obj.getPago());
+    lblPagoD.setText("$"+obj.getPago());
+    btnPagar.setEnabled(true);
+    btnGetGasoline.setEnabled(false);
+    lblGalonesC.setText(txtCantidad.getText());
+    } 
+    } catch (Exception e) 
+    {
+    JOptionPane.showMessageDialog(this, "Solo ingrese numeros");
+    txtCantidad.setText("");
+    txtCantidad.requestFocus();
+    }
+    
+    }
+    else
+    {
+    JOptionPane.showMessageDialog(this, "Llene todos los datos");
+    }
+   
     }//GEN-LAST:event_btnGetGasolineActionPerformed
 
     private void jrdGalonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrdGalonesActionPerformed
@@ -235,16 +380,76 @@ public class FrmGasolinera extends javax.swing.JFrame {
 
     private void lblDieselMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDieselMouseClicked
     tipo = 1;
+  lblDiesel.setForeground(Color.yellow);
+  lblRegular.setForeground(Color.black);
+  lblEspecial.setForeground(Color.black);
     }//GEN-LAST:event_lblDieselMouseClicked
 
     private void lblRegularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegularMouseClicked
     tipo = 2;
+  lblRegular.setForeground(Color.yellow);
+  lblDiesel.setForeground(Color.black);
+  lblEspecial.setForeground(Color.black);
     }//GEN-LAST:event_lblRegularMouseClicked
 
     private void lblEspecialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialMouseClicked
     tipo = 3;
+    lblEspecial.setForeground(Color.yellow);
+    lblRegular.setForeground(Color.black);
+    lblDiesel.setForeground(Color.black);
+   
     }//GEN-LAST:event_lblEspecialMouseClicked
 
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+   
+   try 
+   {
+   double cuenta= Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad pagada"));
+   lblPagadoD.setText("$"+cuenta);
+   if(!(cuenta == obj.getPago()))
+   {
+   if(cuenta >= obj.getPago())
+   {
+   cuenta = cuenta - obj.getPago();
+   JOptionPane.showMessageDialog(this, "Su vuelto es:"+cuenta);
+     lblVueltoD.setText("$"+cuenta);
+     btnGetGasoline.setEnabled(true);
+     btnPagar.setEnabled(false);
+     mthLimpiar();
+   }
+   else
+   {
+   JOptionPane.showMessageDialog(this,"El pago tiene que ser mayor o igual a la deuda" );
+   }
+   }
+   else
+   {
+     btnGetGasoline.setEnabled(true);
+     btnPagar.setEnabled(false);
+     mthLimpiar();
+   }
+   }
+   catch (Exception e) 
+   {
+   JOptionPane.showMessageDialog(this, "Solo ingrese numeros");
+   }
+     
+   
+    }//GEN-LAST:event_btnPagarActionPerformed
+    public void mthLimpiar()
+    {
+    txtCantidad.setText("");
+    txtNombre.setText("");
+    jrdDinero.setSelected(false);
+    jrdGalones.setSelected(false);
+    lblDiesel.setForeground(Color.black);
+    lblRegular.setForeground(Color.black);
+    lblEspecial.setForeground(Color.black);
+    lblPagoD.setText("$0");
+    lblPagadoD.setText("$0");
+    lblVueltoD.setText("$0");
+    tipo = 0;
+    }
     /**
      * @param args the command line arguments
      */
@@ -282,16 +487,27 @@ public class FrmGasolinera extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGetGasoline;
+    private javax.swing.JButton btnPagar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpbPrincipal;
     private javax.swing.JRadioButton jrdDinero;
     private javax.swing.JRadioButton jrdGalones;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDiesel;
     private javax.swing.JLabel lblEspecial;
+    private javax.swing.JLabel lblGalonesC;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPagadoD;
+    private javax.swing.JLabel lblPago;
+    private javax.swing.JLabel lblPagoD;
     private javax.swing.JLabel lblRegular;
     private javax.swing.JLabel lblRegular1;
+    private javax.swing.JLabel lblTipo;
+    private javax.swing.JLabel lblVuelto;
+    private javax.swing.JLabel lblVueltoD;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
